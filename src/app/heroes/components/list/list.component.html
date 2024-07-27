@@ -1,0 +1,29 @@
+<p>Listado de héroes</p>
+
+<!-- el ngIf detecta los valore 0, null, undefined, false etc como false. Por lo tanto si una variable no tiene valor o es 0, el ngIf no aparce -->
+<div *ngIf="deleteHero; else nothingWasDeleted">
+  <!-- Cuando en la directiva anterior  -->
+  <h3>Héroe borrado<small class="text-danger">{{deleteHero}}</small></h3>
+</div>
+
+<!-- En el ngIf de arriba condicionamos que si no se cumple el false o undefined del delteHero que se muestre este #nothingWasDeleted. Este ng-template funciona como un div y al darle un #id podemos manipularlo como en el ngif de arriba -->
+<ng-template #nothingWasDeleted>
+  <h3>No ha borrado nada</h3>
+</ng-template>
+
+
+<button
+  *ngIf="heroNames.length > 0"
+  (click)="removeLastHero()"
+  class="btn btn-outline-danger"
+  >Borrar un héroe
+</button>
+
+
+<ul class="mt-2 list-group">
+  <!-- <li class="list-group-item">Spiderman</li>
+  <li class="list-group-item">Ironman</li>
+  <li class="list-group-item">Hulk</li>
+  <li class="list-group-item">Thor</li> -->
+  <li class="list-group-item" *ngFor="let item of heroNames">{{item}}</li>
+</ul>
