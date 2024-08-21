@@ -23,5 +23,10 @@ export class MainPageComponent  {
   },{
     name: 'Yamtcha',
     power: 300
-  }]
+  }];
+
+  onNewCharacter ( character: Character ): void {
+    console.log('main page: ', character);
+  }
+
 }

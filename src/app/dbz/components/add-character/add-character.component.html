@@ -1,6 +1,25 @@
 <h4>Agregar personaje</h4>
-  <form action="" class="row">
-    <input type="text" class="form-control mb-2" placeholder="Nombre del personaje">
-    <input type="number" class="form-control mb-2" placeholder="Poder">
+  <form class="row" (ngSubmit)="emitCharacter()">
+
+    <!-- el ngModule en este caso se usa en caja de banana que es [()] que siginifica asociar un evento y un atributo al mismo tiempo en la mism adirectriz -->
+    <!-- Para que la directiva [(ngModule)] sirva, debemos importar formsModule de angular core. Este lo importamos en dbz.module.ts -->
+    <input
+      type="text"
+      [(ngModel)]="character.name"
+      name="name"
+      class="form-control mb-2"
+      placeholder="Nombre del personaje">
+
+      <!-- con el ngModel vamos a tener acceso al objeto que declaramos en el add-character.component.ts en tiempo real sin pasarnos el objeto. Para esto podemos imprimir por consola y veremos que cambia en tiempo de ejecución -->
+
+    <input
+      type="number"
+      [(ngModel)]="character.power"
+      name="power"
+      class="form-control mb-2"
+      placeholder="Poder">
+
     <button type="submit" class="btn btn-primary">Agregar</button>
+
+    <pre>{{ character | json}}</pre>
   </form>
