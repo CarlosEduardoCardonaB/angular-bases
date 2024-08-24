@@ -7,7 +7,8 @@
         let isLast = last
         let isEven = even
         let isOdd = odd"
-      class="list-group-item" [ngClass]="{
+      class="list-group-item d-flex justify-content-between align-items-center"
+      [ngClass]="{
         'list-group-item-success ': isFirst,
         'list-group-item-info' : isEven,
         'list-group-item-secondary' : isOdd,
@@ -16,31 +17,35 @@
       <!-- otra forma menos recomendada pero que funciona para añadir una clase dependiendo de x condición es la siguiente -->
       <!-- class="list-group-item {{ i === 0 ? 'list-group-item-success':'' }} "> -->
 
-      <!-- Esta línea de aqui abajo sirve para asignar numeración a la lista a partir de uno, y esta la definimos con el index declarado en el ngFor -->
-      <span class="text-primary">{{ i }}. </span>
+      <div>
+        <!-- Esta línea de aqui abajo sirve para asignar numeración a la lista a partir de uno, y esta la definimos con el index declarado en el ngFor -->
+          <span class="text-primary">{{ i }}. </span>
 
-      <span>{{character.name}} - </span>
+          <span>{{character.name}} - </span>
 
-      <strong>Power: </strong>
+          <strong>Power: </strong>
 
-      <span>{{character.power}}</span>
+          <span>{{character.power}}</span>
 
-      <!-- De esta forma identificamos el primero usando el index -->
-      <!-- <span> Es el primero: {{i === 0}} </span> -->
+          <!-- De esta forma identificamos el primero usando el index -->
+          <!-- <span> Es el primero: {{i === 0}} </span> -->
 
-      <!-- Y de esta forma lo identificamos con el parámetro isfirst -->
-      <span> Es el primero: {{isFirst}} </span>
+          <!-- Y de esta forma lo identificamos con el parámetro isfirst -->
+          <!-- <span> Es el primero: {{isFirst}} </span> -->
 
-      <!-- De esta forma identificamos el ultimo usando el index -->
-      <!-- <span> Es el ultimo: {{i ===characterList.length -1 }} </span> -->
+          <!-- De esta forma identificamos el ultimo usando el index -->
+          <!-- <span> Es el ultimo: {{i ===characterList.length -1 }} </span> -->
 
-      <!-- Y de esta forma lo identificamos con el parámetro isLast -->
-      <span> Es el ultimo: {{i ===characterList.length -1 }} </span>
+          <!-- Y de esta forma lo identificamos con el parámetro isLast -->
+          <!-- <span> Es el ultimo: {{i ===characterList.length -1 }} </span> -->
 
-      <!-- Con even identificamos los items de la lista que son pares -->
-      <span> Este es par: {{ isEven }}</span>
+          <!-- Con even identificamos los items de la lista que son pares -->
+          <!-- <span> Este es par: {{ isEven }}</span> -->
 
-      <!-- Con odd identificamos los items de la lista que son impares -->
-      <span> Este es impar: {{ isOdd }}</span>
+          <!-- Con odd identificamos los items de la lista que son impares -->
+          <!-- <span> Este es impar: {{ isOdd }}</span> -->
+      </div>
+
+      <button class="btn btn-danger" (click)="onDeleteCharater(character.id || '')">X</button>
     </li>
   </ul>

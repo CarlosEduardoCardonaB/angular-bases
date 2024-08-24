@@ -1,5 +1,6 @@
-import { Component} from '@angular/core';
 import { Character } from '../interfaces/character.interface';
+import { DbzService } from './../servicios/dbz.service';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-dbz-main-page',
@@ -8,25 +9,22 @@ import { Character } from '../interfaces/character.interface';
 
 export class MainPageComponent  {
 
-  public characters: Character[] = [{
-    name: 'Krilin',
-    power: 1000
-  },{
-    name: 'Goku',
-    power: 9500
-  },{
-    name: 'Vegueta',
-    power: 7500
-  },{
-    name: 'Picollo',
-    power: 2300
-  },{
-    name: 'Yamtcha',
-    power: 300
-  }];
+  //Declarando en el constructor public podemos acceder a los atributos desde el html, por ejemplo asi: dbzService.characters
+  //constructor( public dbzService : DbzService){}
 
-  onNewCharacter ( character: Character ): void {
-    console.log('main page: ', character);
+  //Declarando como privado debemos usar getters para acceder a las propiedades y métodos del dbzService
+  constructor( private dbzService : DbzService){}
+
+  get characters(): Character[]{
+    return [...this.dbzService.characters];
+  }
+
+  onDeleteCharacter( id: string): void{
+    this.dbzService.onDeleteCharacterById( id );
+  }
+
+  onNewCharacterMain (character: Character): void{
+    this.dbzService.onNewCharacter( character );
   }
 
 }
