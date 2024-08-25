@@ -13,7 +13,6 @@ export class AddCharacterComponent {
   public onNewCharacter: EventEmitter<Character> = new EventEmitter();
 
   public character: Character = {
-    id: '',
     name: '',
     power: 0
   };
@@ -22,7 +21,6 @@ export class AddCharacterComponent {
 
     //Esta directriz "debugger" nos hace un brake point en el navegador para depurar nuestra aplicación
     //debugger;
-    this.character.id = uuid();
     console.log(this.character);
 
     if( this.character.name.length === 0 ) return;
@@ -34,7 +32,7 @@ export class AddCharacterComponent {
     // this.character.power = 0;
 
     //Esto mismo de aqui arrba lo podemos hacer asi:
-    this.character = {id: '', name: '', power: 0}
+    this.character = {name: '', power: 0}
   }
 
 }

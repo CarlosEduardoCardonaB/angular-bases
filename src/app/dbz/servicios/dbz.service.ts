@@ -39,7 +39,7 @@ export class DbzService {
     // }
 
     //Otra forma de hacer esta declaración de arriba es de la siguiente forma, donde le decimos al programa que todos los campos del character los añada al objeto newCharacter sin declarar uno a uno sus campos
-    const newCharacter: Character = {...character}
+    const newCharacter: Character = {id: uuid(), ...character}
 
     this.characters.push(newCharacter);
 
