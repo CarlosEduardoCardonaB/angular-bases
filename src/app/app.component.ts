@@ -7,15 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public title: string = 'Mi primera app de angular';
-  // public counter: number = 10;
+  public counter: number = 10;
 
 
-  // increaseBy(value:number):void{
-  //  this.counter += value
-  // }
+  increaseBy(value:number):void{
+   this.counter += value
+  }
 
-  // resetCounter():void{
-  //   this.counter = 10;
-  // }
+  resetCounter():void{
+    this.counter = 10;
+  }
 
 }
